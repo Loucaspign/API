@@ -1,0 +1,8 @@
+Email :			Password:	Admin:
+
+chloe@hotmail.fr	password	non
+louis@hotmail.fr	password	oui
+simon@hotmail.fr	password	non
+zoe@hotmail.fr		password	oui
+
+PS: attention, seuls les admin peuvent se connecter

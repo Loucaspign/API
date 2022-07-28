@@ -1,0 +1,1707 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API SmartCity",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/colocation/": {
+      "get": {
+        "tags": [
+          "colocation"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "rowLimit",
+            "description": "Number of rows returned",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "description": "Offset from the first line",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "404": {
+            "description": "No colocation found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "colocation"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/UpdateColocation"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/ColocationUpdated"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "colocation"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AddColocation"
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/ColocationAdd"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "colocation"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/DeleteColocation"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/ColocationDeleted"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/colocation/{id}": {
+      "get": {
+        "tags": [
+          "colocation"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "colocation id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorJWT"
+          },
+          "401": {
+            "$ref": "#/components/responses/MissingJWT"
+          },
+          "404": {
+            "description": "colocation not found"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/colocation/nb": {
+      "get": {
+        "tags": [
+          "colocation"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationNumber"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/location/": {
+      "get": {
+        "tags": [
+          "location"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "rowLimit",
+            "description": "Number of rows returned",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "description": "Offset from the first line",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/LocationFound"
+          },
+          "404": {
+            "description": "No meal found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "location"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/UpdateLocation"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/LocationUpdated"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "location"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AddLocation"
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/LocationAdd"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "location"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/DeleteLocation"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/LocationDeleted"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/location/{id}": {
+      "get": {
+        "tags": [
+          "location"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "location id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorJWT"
+          },
+          "404": {
+            "description": "colocation not found"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/location/nb": {
+      "get": {
+        "tags": [
+          "location"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/LocationNumber"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/manager/": {
+      "get": {
+        "tags": [
+          "manager"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "rowLimit",
+            "description": "Number of rows returned",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "description": "Offset from the first line",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "manager"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/UpdateManager"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/ManagerUpdated"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "manager"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AddManager"
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/ManagerAdd"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "manager"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/DeleteManager"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/ManagerDeleted"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/manager/{id}": {
+      "get": {
+        "tags": [
+          "manager"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "colocation id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorJWT"
+          },
+          "404": {
+            "description": "colocation not found"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/manager/nb": {
+      "get": {
+        "tags": [
+          "manager"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ManagerNumber"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/school/": {
+      "get": {
+        "tags": [
+          "school"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "rowLimit",
+            "description": "Number of rows returned",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "description": "Offset from the first line",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "404": {
+            "description": "No meal found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "school"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/UpdateSchool"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/SchoolUpdated"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "school"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AddSchool"
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/SchoolAdd"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "school"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/DeleteSchool"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/SchoolDeleted"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/school/{id}": {
+      "get": {
+        "tags": [
+          "school"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "school id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorJWT"
+          },
+          "404": {
+            "description": "colocation not found"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/school/nb": {
+      "get": {
+        "tags": [
+          "school"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/SchoolNumber"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "rowLimit",
+            "description": "Number of rows returned",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "description": "Offset from the first line",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/ColocationFound"
+          },
+          "404": {
+            "description": "No meal found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/UpdateUser"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/UserUpdated"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/AddUser"
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/UserAdd"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/DeleteUser"
+        },
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/UserDeleted"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "user id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/UserFound"
+          },
+          "400": {
+            "$ref": "#/components/responses/ErrorJWT"
+          },
+          "404": {
+            "description": "colocation not found"
+          },
+          "500": {
+            "description": "server error"
+          }
+        }
+      }
+    },
+    "/user/nb": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "searchElem",
+            "description": "Research element",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/UserNumber"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Colocation": {
+        "type": "object",
+        "properties": {
+          "colocation_id": {
+            "type": "integer"
+          },
+          "colocation_name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "size": {
+            "type": "string"
+          },
+          "manager_id_fk": {
+            "type": "integer"
+          },
+          "location_id_fk": {
+            "type": "integer"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string",
+            "format": "password"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "firstname": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string"
+          },
+          "sexe": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "statut": {
+            "type": "string"
+          },
+          "phonenumber": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "netflixAndChill": {
+            "type": "boolean"
+          },
+          "relax": {
+            "type": "boolean"
+          },
+          "seriousStudent": {
+            "type": "boolean"
+          },
+          "athletic": {
+            "type": "boolean"
+          },
+          "party": {
+            "type": "boolean"
+          },
+          "obsessiveCleaning": {
+            "type": "boolean"
+          },
+          "noParty": {
+            "type": "boolean"
+          },
+          "smoke": {
+            "type": "boolean"
+          },
+          "sizeOfColocation": {
+            "type": "boolean"
+          },
+          "school_id_fk": {
+            "type": "integer"
+          },
+          "colocation_id_fk2": {
+            "type": "integer"
+          }
+        }
+      },
+      "Manager": {
+        "type": "object",
+        "properties": {
+          "manager_id": {
+            "type": "integer"
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "phonenumber": {
+            "type": "string"
+          }
+        }
+      },
+      "School": {
+        "type": "object",
+        "properties": {
+          "school_id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "location_id_fk2": {
+            "type": "integer"
+          }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "integer"
+          },
+          "coordX": {
+            "type": "string"
+          },
+          "coordY": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "ColocationFound": {
+        "description": "renvoie une colocation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Colocation"
+            }
+          }
+        }
+      },
+      "ColocationAdd": {
+        "description": "la colocation a été ajoutée à la base de données"
+      },
+      "ColocationUpdated": {
+        "description": "la colocation a été mise à jour"
+      },
+      "ColocationDeleted": {
+        "description": "la colocation a été supprimée"
+      },
+      "ColocationNumber": {
+        "description": "renvoie le nombre de colocations"
+      },
+      "UserFound": {
+        "description": "renvoie un utilisateur",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        }
+      },
+      "UserAdd": {
+        "description": "l'utilisateur a été ajouté à la base de données"
+      },
+      "UserUpdated": {
+        "description": "l'utilisateur a été mis à jour"
+      },
+      "UserDeleted": {
+        "description": "l'utilisateur a été supprimé"
+      },
+      "UserNumber": {
+        "description": "renvoie le nombre d'utilisateurs"
+      },
+      "ManagerFound": {
+        "description": "renvoie un manager",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Manager"
+            }
+          }
+        }
+      },
+      "ManagerAdd": {
+        "description": "le manager a été ajouté à la base de données"
+      },
+      "ManagerUpdated": {
+        "description": "le manager a été mis à jour"
+      },
+      "ManagerDeleted": {
+        "description": "le manager a été supprimé"
+      },
+      "ManagerNumber": {
+        "description": "renvoie le nombre de managers"
+      },
+      "SchoolFound": {
+        "description": "renvoie une école",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/School"
+            }
+          }
+        }
+      },
+      "SchoolAdd": {
+        "description": "l'école a été ajoutée à la base de données"
+      },
+      "SchoolUpdated": {
+        "description": "l'école a été mise à jour"
+      },
+      "SchoolDeleted": {
+        "description": "l'école a été supprimée"
+      },
+      "SchoolNumber": {
+        "description": "renvoie le nombre d'écoles"
+      },
+      "LocationFound": {
+        "description": "renvoie une localisation",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Location"
+            }
+          }
+        }
+      },
+      "LocationAdd": {
+        "description": "la localisation a été ajoutée à la base de données"
+      },
+      "LocationUpdated": {
+        "description": "la localisation a été mise à jour"
+      },
+      "LocationDeleted": {
+        "description": "la localisation a été supprimée"
+      },
+      "LocationNumber": {
+        "description": "renvoie le nombre de localisations"
+      },
+      "mustBeManager": {
+        "description": "L'action demandée ne peut être réalisée que par un manager"
+      },
+      "ErrorJWT": {
+        "description": "le JWT n'est pas valide"
+      },
+      "MissingJWT": {
+        "description": "le JWT n'est pas présent"
+      }
+    },
+    "requestBodies": {
+      "AddColocation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colocation_id": {
+                  "type": "integer"
+                },
+                "colocation_name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "manager_id_fk": {
+                  "type": "integer"
+                },
+                "location_id_fk": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "colocation_id",
+                "colocation_name",
+                "address",
+                "description",
+                "price",
+                "size",
+                "manager_id_fk",
+                "location_id_fk"
+              ]
+            }
+          }
+        }
+      },
+      "UpdateColocation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colocation_id": {
+                  "type": "integer"
+                },
+                "colocation_name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "size": {
+                  "type": "string"
+                },
+                "manager_id_fk": {
+                  "type": "integer"
+                },
+                "location_id_fk": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DeleteColocation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colocation_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "AddUser": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string",
+                  "format": "password"
+                },
+                "isAdmin": {
+                  "type": "boolean"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "birthdate": {
+                  "type": "string"
+                },
+                "sexe": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "statut": {
+                  "type": "string"
+                },
+                "phoneNumber": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "netflixAndChil": {
+                  "type": "boolean"
+                },
+                "relax": {
+                  "type": "boolean"
+                },
+                "seriousStudent": {
+                  "type": "boolean"
+                },
+                "athletic": {
+                  "type": "boolean"
+                },
+                "party": {
+                  "type": "boolean"
+                },
+                "obsessiveCleaning": {
+                  "type": "boolean"
+                },
+                "noParty": {
+                  "type": "boolean"
+                },
+                "smoke": {
+                  "type": "boolean"
+                },
+                "sizeOfColocation": {
+                  "type": "string"
+                },
+                "school_id_fk": {
+                  "type": "integer"
+                },
+                "colocation_id_fk2:": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "email",
+                "password",
+                "lastname",
+                "firstname",
+                "birthdate",
+                "sexe",
+                "address",
+                "statut"
+              ]
+            }
+          }
+        }
+      },
+      "UpdateUser": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string",
+                  "format": "password"
+                },
+                "isAdmin": {
+                  "type": "boolean"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "birthdate": {
+                  "type": "string"
+                },
+                "sexe": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "statut": {
+                  "type": "string"
+                },
+                "phoneNumber": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "netflixAndChil": {
+                  "type": "boolean"
+                },
+                "relax": {
+                  "type": "boolean"
+                },
+                "seriousStudent": {
+                  "type": "boolean"
+                },
+                "athletic": {
+                  "type": "boolean"
+                },
+                "party": {
+                  "type": "boolean"
+                },
+                "obsessiveCleaning": {
+                  "type": "boolean"
+                },
+                "noParty": {
+                  "type": "boolean"
+                },
+                "smoke": {
+                  "type": "boolean"
+                },
+                "sizeOfColocation": {
+                  "type": "string"
+                },
+                "school_id_fk": {
+                  "type": "integer"
+                },
+                "colocation_id_fk2:": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "user_id",
+                "email",
+                "password",
+                "lastname",
+                "firstname",
+                "birthdate",
+                "sexe",
+                "address",
+                "statut"
+              ]
+            }
+          }
+        }
+      },
+      "DeleteUser": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "AddManager": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_id": {
+                  "type": "integer"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "phonenumber": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "manager_id",
+                "email",
+                "name"
+              ]
+            }
+          }
+        }
+      },
+      "UpdateManager": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_id": {
+                  "type": "integer"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "phonenumber": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "manager_id",
+                "email",
+                "name"
+              ]
+            }
+          }
+        }
+      },
+      "DeleteManager": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "manager_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "manager_id"
+              ]
+            }
+          }
+        }
+      },
+      "AddSchool": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "school_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "location_id_fk2": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "school_id",
+                "name",
+                "location_id_fk2"
+              ]
+            }
+          }
+        }
+      },
+      "UpdateSchool": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "school_id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "location_id_fk2": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "school_id"
+              ]
+            }
+          }
+        }
+      },
+      "DeleteSchool": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "school_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "school_id"
+              ]
+            }
+          }
+        }
+      },
+      "AddLocation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location_id": {
+                  "type": "integer"
+                },
+                "coordX": {
+                  "type": "string"
+                },
+                "coordY": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "location_id",
+                "coordX",
+                "coordY"
+              ]
+            }
+          }
+        }
+      },
+      "UpdateLocation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location_id": {
+                  "type": "integer"
+                },
+                "coordX": {
+                  "type": "string"
+                },
+                "coordY": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "location_id",
+                "coordX",
+                "coordY"
+              ]
+            }
+          }
+        }
+      },
+      "DeleteLocation": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "location_id"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "smartcity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "initDB": "node scripts/JS/initDB.js",
+    "dev": "nodemon app.js",
+    "genDoc": "node ./swagger/swagger_jsdoc.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "process": "^0.11.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "swagger-jsdoc": "^6.1.0"
+  }
+}

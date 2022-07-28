@@ -1,0 +1,18 @@
+POINTS FORTS :
+
+Bonne structure du projet.
+La répartitions des différentes classes dans les différents dossiers est clair.
+Code lisible
+
+
+POINTS FAIBLES :
+
+Nom de classe identique dans les différents dossiers, peut semer la confusion lors des différents import
+
+Gestion des erreurs pas assez personnalisée, peut engendrer une mauvaise compréhension par l'utilisateur en cas de problème.
+
+Swagger
+
+Tests postman manquants
+
+
